@@ -7,12 +7,13 @@ export default class MyComponent extends Document {
                 <Head>
                     <link rel="preconnect" href="https://fonts.gstatic.com"/>
 
-                    <link rel="shortcut icon" href="/public/favicon.svg" />
-                    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
+                    <link rel="shortcut icon" href="/public/favicon.svg"/>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+                          rel="stylesheet"/>
                 </Head>
                 <body>
-                    <Main/>
-                    <NextScript/>
+                <Main/>
+                <NextScript/>
                 </body>
             </Html>
         );

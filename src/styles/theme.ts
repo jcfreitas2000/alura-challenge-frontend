@@ -3,11 +3,11 @@ import { extendTheme } from '@chakra-ui/react'
 export const theme = extendTheme({
     colors: {
         gray: {
-            600: '#2D415A',
-            900: '#051D3B'
+            600: '#2D415A'
         },
         blue: {
-            900: '#051D3B',
+            900: '#041832',
+            800: '#051D3B',
             400: '#5081FB'
         }
     },
@@ -18,7 +18,7 @@ export const theme = extendTheme({
     styles: {
         global: {
             body: {
-                bg: 'blue.900',
+                bg: 'blue.800',
                 color: 'white'
             }
         }
