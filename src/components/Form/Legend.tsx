@@ -1,11 +1,11 @@
-import {Text, TextProps} from "@chakra-ui/react";
+import {Subtitle} from "../Text/Subtitle";
 
-interface LegendProps extends TextProps {
+interface LegendProps {
     text: string;
 }
 
-export function Legend({text, ...rest}: LegendProps) {
+export function Legend({text}: LegendProps) {
     return (
-        <Text as="legend" casing="uppercase" letterSpacing=".4em" fontSize="xs" {...rest}>{text}</Text>
-    );
+        <Subtitle text={text} as="legend" />
+    )
 }

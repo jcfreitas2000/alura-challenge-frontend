@@ -7,7 +7,7 @@ import {Select} from "../Form/Select";
 export function ProjectForm() {
     return (
 
-        <Stack as="fieldset" spacing="8">
+        <Stack as="fieldset" spacing="8" w="100%" maxW="300px">
             <Stack as="fieldset" spacing="4">
                 <Legend text="Seu projeto"/>
 

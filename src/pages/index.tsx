@@ -1,13 +1,18 @@
-import {Flex,} from "@chakra-ui/react";
+import {Flex, HStack,} from "@chakra-ui/react";
 import {ProjectForm} from "../components/Project/Form";
+import {SidebarMenu} from "../components/SidebarMenu";
+import {Header} from "../components/Header";
 
 
 export default function Home() {
     return (
-        <Flex w="100vw" h="100vh" align="center" justify="center">
-            <Flex as="form" w="100%" maxW="360px">
+        <>
+            <Header />
+            <Flex justify="space-between" p={8} spacing={8}>
+                <SidebarMenu/>
+                <p>Body</p>
                 <ProjectForm/>
             </Flex>
-        </Flex>
+        </>
     )
 }
