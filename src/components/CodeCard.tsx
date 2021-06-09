@@ -13,7 +13,7 @@ interface CodeCardProps {
 
 export function CodeCard({title, description, commentsCount, likesCount, ...rest}: CodeCardProps) {
     return (
-        <Box bgColor="blue.900" borderRadius={8}>
+        <Box bgColor="blue.900" borderRadius="lg">
             <Code {...rest} />
 
             <Box py={6} px={8}>

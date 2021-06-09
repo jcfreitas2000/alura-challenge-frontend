@@ -19,8 +19,8 @@ const unfold = (f, seed) => {
 
 export function Code({code = codeExample, color = 'blue.400'}: CodeProps) {
     return (
-        <Box p={8} w="100%" bgColor={color} borderRadius={8}>
-            <Box bgColor="gray.900" borderRadius={8} p={4} position="relative" whiteSpace="pre-wrap">
+        <Box p={8} w="100%" bgColor={color} borderRadius="lg">
+            <Box bgColor="gray.900" borderRadius="lg" p={4} position="relative" whiteSpace="pre-wrap">
                 <HStack mb={8}>
                     <ColorCircle color="red.400"/>
                     <ColorCircle color="yellow.400"/>
