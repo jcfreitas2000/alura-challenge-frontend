@@ -3,7 +3,7 @@ import { Input } from './Form/Input'
 import { Profile } from './Profile'
 import Link from 'next/link'
 
-export function Header() {
+export function Header(): JSX.Element {
     return (
         <HStack p={8} justify="space-between" spacing={8}>
             <Box w="100%" maxW="300px">

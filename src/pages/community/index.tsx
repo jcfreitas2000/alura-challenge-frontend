@@ -1,9 +1,11 @@
+import React from 'react'
+
 import { Layout } from '../../components/Layout'
 import { Grid, GridItem } from '@chakra-ui/react'
 import { CodeCard } from '../../components/CodeCard'
 import Head from 'next/head'
 
-export default function community() {
+const community: React.FC = () => {
     return (
         <Layout>
             <Head>
@@ -53,3 +55,5 @@ export default function community() {
         </Layout>
     )
 }
+
+export default community

@@ -11,13 +11,18 @@ interface TextareaProps extends ChakraTextareaProps {
     placeholder: string
 }
 
-export function Textarea({ name, label, placeholder, ...rest }: TextareaProps) {
+export function Textarea({
+    name,
+    label,
+    placeholder,
+    ...rest
+}: TextareaProps): JSX.Element {
     return (
-        <FormControl id="description">
-            {label && <FormLabel fontSize="xs">Descrição</FormLabel>}
+        <FormControl id={name}>
+            {label && <FormLabel fontSize="xs">{label}</FormLabel>}
             <ChakraTextarea
                 variant="filled"
-                placeholder="Descrição do seu projeto"
+                placeholder={placeholder}
                 bgColor="gray.600"
                 py="4"
                 _hover={{ bgColor: 'gray.600' }}

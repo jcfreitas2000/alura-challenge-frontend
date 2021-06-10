@@ -40,7 +40,10 @@ interface ColorPickerProps {
     setColor?: (color: Color) => void
 }
 
-export function ColorPicker({ color, setColor }: ColorPickerProps) {
+export function ColorPicker({
+    color,
+    setColor
+}: ColorPickerProps): JSX.Element {
     const [selectedColor, setSelectedColor] = useState(options[0])
     const popoverBg = 'blue.900'
 
@@ -172,7 +175,7 @@ function RadioItemColor({ colorItem, ...props }: RadioItemColorProps) {
                             color: 'black'
                         }
                     }}
-                ></Center>
+                />
             </Box>
         </Tooltip>
     )

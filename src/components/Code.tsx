@@ -17,7 +17,10 @@ const unfold = (f, seed) => {
   return go(f, seed, [])
 }`
 
-export function Code({ code = codeExample, color = 'blue.400' }: CodeProps) {
+export function Code({
+    code = codeExample,
+    color = 'blue.400'
+}: CodeProps): JSX.Element {
     return (
         <Box p={8} w="100%" bgColor={color} borderRadius="lg">
             <Box

@@ -5,7 +5,7 @@ interface SubtitleProps extends TextProps {
     as: any
 }
 
-export function Subtitle({ text, as, ...rest }: SubtitleProps) {
+export function Subtitle({ text, as, ...rest }: SubtitleProps): JSX.Element {
     return (
         <Text
             as={as}

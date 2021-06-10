@@ -17,7 +17,7 @@ export function CodeCard({
     commentsCount,
     likesCount,
     ...rest
-}: CodeCardProps) {
+}: CodeCardProps): JSX.Element {
     return (
         <Box bgColor="blue.900" borderRadius="lg">
             <Code {...rest} />
@@ -35,12 +35,12 @@ export function CodeCard({
                         <Counter
                             iconsSrc="/icons/comment.svg"
                             iconsAlt="Quantidade de comentários"
-                            count={6}
+                            count={commentsCount}
                         />
                         <Counter
                             iconsSrc="/icons/like.svg"
                             iconsAlt="Quantidade de likes"
-                            count={10}
+                            count={likesCount}
                         />
                     </HStack>
                     <Profile name="ZezinDoCross" />

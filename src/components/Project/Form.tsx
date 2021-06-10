@@ -6,7 +6,7 @@ import { Select } from '../Form/Select'
 import { Code } from '../Code'
 import { ColorPicker } from '../Form/ColorPicker'
 
-export function ProjectForm() {
+export function ProjectForm(): JSX.Element {
     return (
         <>
             <Code />

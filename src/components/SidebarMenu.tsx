@@ -12,7 +12,7 @@ import { Subtitle } from './Text/Subtitle'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export function SidebarMenu() {
+export function SidebarMenu(): JSX.Element {
     return (
         <Flex direction="column" w="100%" maxW="300px">
             <Subtitle text="Menu" as="small" />
@@ -38,7 +38,7 @@ interface MenuItemProps {
     href: string
 }
 
-function MenuItem({ iconSrc, text, href }: MenuItemProps) {
+function MenuItem({ iconSrc, text, href }: MenuItemProps): JSX.Element {
     const router = useRouter()
 
     return (

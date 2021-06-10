@@ -4,7 +4,7 @@ interface ProfileProps {
     name: string
 }
 
-export function Profile({ name }: ProfileProps) {
+export function Profile({ name }: ProfileProps): JSX.Element {
     return (
         <HStack
             w="100%"

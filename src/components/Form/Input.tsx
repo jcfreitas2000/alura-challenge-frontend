@@ -11,7 +11,12 @@ interface InputProps extends ChakraInputProps {
     placeholder: string
 }
 
-export function Input({ name, label, placeholder, ...rest }: InputProps) {
+export function Input({
+    name,
+    label,
+    placeholder,
+    ...rest
+}: InputProps): JSX.Element {
     return (
         <FormControl id={name}>
             {label && <FormLabel fontSize="xs">{label}</FormLabel>}

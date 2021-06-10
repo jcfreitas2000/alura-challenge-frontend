@@ -14,7 +14,12 @@ interface SelectProps extends ChakraSelectProps {
     }[]
 }
 
-export function Select({ name, label, options, ...rest }: SelectProps) {
+export function Select({
+    name,
+    label,
+    options,
+    ...rest
+}: SelectProps): JSX.Element {
     return (
         <FormControl id={name}>
             {label && <FormLabel fontSize="xs">{label}</FormLabel>}
