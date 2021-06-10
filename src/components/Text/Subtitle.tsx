@@ -1,12 +1,20 @@
-import {Text, TextProps} from "@chakra-ui/react";
+import { Text, TextProps } from '@chakra-ui/react'
 
 interface SubtitleProps extends TextProps {
-    text: string;
-    as: any;
+    text: string
+    as: any
 }
 
-export function Subtitle({text, as, ...rest}: SubtitleProps) {
+export function Subtitle({ text, as, ...rest }: SubtitleProps) {
     return (
-        <Text as={as} casing="uppercase" letterSpacing=".4em" fontSize="xs" {...rest}>{text}</Text>
-    );
+        <Text
+            as={as}
+            casing="uppercase"
+            letterSpacing=".4em"
+            fontSize="xs"
+            {...rest}
+        >
+            {text}
+        </Text>
+    )
 }

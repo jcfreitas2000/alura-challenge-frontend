@@ -1,11 +1,9 @@
-import {Subtitle} from "../Text/Subtitle";
+import { Subtitle } from '../Text/Subtitle'
 
 interface LegendProps {
-    text: string;
+    text: string
 }
 
-export function Legend({text}: LegendProps) {
-    return (
-        <Subtitle text={text} as="legend" />
-    )
+export function Legend({ text }: LegendProps) {
+    return <Subtitle text={text} as="legend" />
 }

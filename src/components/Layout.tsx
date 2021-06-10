@@ -1,18 +1,18 @@
-import {Header} from "./Header";
-import {HStack} from "@chakra-ui/react";
-import {SidebarMenu} from "./SidebarMenu";
-import {ReactNode} from "react";
+import { Header } from './Header'
+import { HStack } from '@chakra-ui/react'
+import { SidebarMenu } from './SidebarMenu'
+import { ReactNode } from 'react'
 
 interface LayoutProps {
-    children: ReactNode;
+    children: ReactNode
 }
 
-export function Layout({children}: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
     return (
         <>
-            <Header/>
+            <Header />
             <HStack align="flex-start" p={8} spacing={8}>
-                <SidebarMenu/>
+                <SidebarMenu />
                 {children}
             </HStack>
         </>

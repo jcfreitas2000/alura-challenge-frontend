@@ -1,17 +1,24 @@
-import {ProjectForm} from "../components/Project/Form";
-import {Layout} from "../components/Layout";
-import Head from 'next/head';
+import React from 'react'
 
-export default function Home() {
+import { ProjectForm } from '../components/Project/Form'
+import { Layout } from '../components/Layout'
+import Head from 'next/head'
+
+const Home: React.FC = () => {
     return (
         <>
             <Head>
                 <title>Home</title>
-                <meta name="description" content="Página inicial da plataforma Alura Dev"/>
+                <meta
+                    name="description"
+                    content="Página inicial da plataforma Alura Dev"
+                />
             </Head>
             <Layout>
-                <ProjectForm/>
+                <ProjectForm />
             </Layout>
         </>
     )
 }
+
+export default Home
