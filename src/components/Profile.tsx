@@ -1,4 +1,5 @@
-import { HStack, Image, Text } from '@chakra-ui/react'
+import { HStack, Text } from '@chakra-ui/react'
+import { ChakraNextImage } from './image/NextChakraImage'
 
 interface ProfileProps {
     name: string
@@ -13,10 +14,11 @@ export function Profile({ name }: ProfileProps): JSX.Element {
             align="center"
             spacing={2}
         >
-            <Image
+            <ChakraNextImage
                 src="/images/profile.jpg"
                 alt="Foto de perfil"
-                w="32px"
+                width="32px"
+                height="32px"
                 borderRadius="50%"
             />
             <Text as="span">{name}</Text>

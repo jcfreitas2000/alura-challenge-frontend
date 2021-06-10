@@ -2,7 +2,6 @@ import {
     Box,
     Flex,
     HStack,
-    Image,
     Link as ChakraLink,
     List,
     ListItem,
@@ -12,18 +11,17 @@ import { Subtitle } from './Text/Subtitle'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
+import CodeIcon from '../assets/code.svg'
+import UsersIcon from '../assets/users.svg'
+
 export function SidebarMenu(): JSX.Element {
     return (
         <Flex direction="column" w="100%" maxW="300px">
             <Subtitle text="Menu" as="small" />
             <List spacing={4} mt={4}>
+                <MenuItem Icon={CodeIcon} text="Editor de código" href="/" />
                 <MenuItem
-                    iconSrc="/icons/code.svg"
-                    text="Editor de código"
-                    href="/"
-                />
-                <MenuItem
-                    iconSrc="/icons/users.svg"
+                    Icon={UsersIcon}
                     text="Comunidade"
                     href="/community"
                 />
@@ -33,12 +31,12 @@ export function SidebarMenu(): JSX.Element {
 }
 
 interface MenuItemProps {
-    iconSrc: string
     text: string
     href: string
+    Icon: string
 }
 
-function MenuItem({ iconSrc, text, href }: MenuItemProps): JSX.Element {
+function MenuItem({ Icon, text, href }: MenuItemProps): JSX.Element {
     const router = useRouter()
 
     return (
@@ -56,7 +54,7 @@ function MenuItem({ iconSrc, text, href }: MenuItemProps): JSX.Element {
                                     : 'brightness(0.5)'
                             }
                         >
-                            <Image w={6} src={iconSrc} alt="Ícone de código" />
+                            <Icon />
                         </Box>
                         <Text>{text}</Text>
                     </HStack>

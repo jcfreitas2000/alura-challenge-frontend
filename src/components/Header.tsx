@@ -1,7 +1,9 @@
-import { Box, HStack, Image, Link as ChakraLink, Text } from '@chakra-ui/react'
+import { Box, HStack, Link as ChakraLink, Text } from '@chakra-ui/react'
 import { Input } from './Form/Input'
 import { Profile } from './Profile'
 import Link from 'next/link'
+
+import LogoIcon from '../assets/logo.svg'
 
 export function Header(): JSX.Element {
     return (
@@ -9,7 +11,7 @@ export function Header(): JSX.Element {
             <Box w="100%" maxW="300px">
                 <Link href="/">
                     <ChakraLink>
-                        <Image src="/images/logo.svg" alt="Alura Dev" />
+                        <LogoIcon />
                         <Text as="h1" hidden={true}>
                             Alura Dev
                         </Text>

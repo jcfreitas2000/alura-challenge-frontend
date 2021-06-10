@@ -1,6 +1,9 @@
-import { Box, HStack, Image, Text } from '@chakra-ui/react'
+import { Box, HStack, Text } from '@chakra-ui/react'
 import { Code } from './Code'
 import { Profile } from './Profile'
+
+import CommentIcon from '../assets/comment.svg'
+import LikeIcon from '../assets/like.svg'
 
 interface CodeCardProps {
     code?: string
@@ -32,16 +35,8 @@ export function CodeCard({
 
                 <HStack justify="space-between" mt={8}>
                     <HStack spacing={8}>
-                        <Counter
-                            iconsSrc="/icons/comment.svg"
-                            iconsAlt="Quantidade de comentários"
-                            count={commentsCount}
-                        />
-                        <Counter
-                            iconsSrc="/icons/like.svg"
-                            iconsAlt="Quantidade de likes"
-                            count={likesCount}
-                        />
+                        <Counter count={commentsCount} Icon={CommentIcon} />
+                        <Counter count={likesCount} Icon={LikeIcon} />
                     </HStack>
                     <Profile name="ZezinDoCross" />
                 </HStack>
@@ -51,15 +46,14 @@ export function CodeCard({
 }
 
 interface CounterProps {
-    iconsSrc: string
-    iconsAlt: string
     count: number
+    Icon: string
 }
 
-function Counter({ iconsSrc, iconsAlt, count }: CounterProps) {
+function Counter({ count, Icon }: CounterProps) {
     return (
         <HStack>
-            <Image src={iconsSrc} alt={iconsAlt} />
+            <Icon />
             <Text as="strong" fontWeight={400}>
                 {count}
             </Text>
