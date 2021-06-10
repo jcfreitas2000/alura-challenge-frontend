@@ -23,7 +23,7 @@ export function CodeCard({
 }: CodeCardProps): JSX.Element {
     return (
         <Box bgColor="blue.900" borderRadius="lg">
-            <Code {...rest} />
+            <Code code="Oláaa" {...rest} />
 
             <Box py={6} px={8}>
                 <Text as="h4" fontSize="lg" fontWeight="bold" mb={2}>

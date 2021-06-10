@@ -7,23 +7,24 @@ import {
 
 interface InputProps extends ChakraInputProps {
     name: string
-    label?: string
-    placeholder: string
+    label: string
+    hiddenLabel?: boolean
 }
 
 export function Input({
     name,
     label,
-    placeholder,
+    hiddenLabel = false,
     ...rest
 }: InputProps): JSX.Element {
     return (
         <FormControl id={name}>
-            {label && <FormLabel fontSize="xs">{label}</FormLabel>}
+            <FormLabel fontSize="xs" hidden={hiddenLabel}>
+                {label}
+            </FormLabel>
             <ChakraInput
                 name={name}
                 variant="filled"
-                placeholder={placeholder}
                 bgColor="gray.600"
                 py="6"
                 _hover={{ bgColor: 'gray.600' }}

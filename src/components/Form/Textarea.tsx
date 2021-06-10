@@ -7,22 +7,23 @@ import {
 
 interface TextareaProps extends ChakraTextareaProps {
     name: string
-    label?: string
-    placeholder: string
+    label: string
+    hiddenLabel: boolean
 }
 
 export function Textarea({
     name,
     label,
-    placeholder,
+    hiddenLabel = false,
     ...rest
 }: TextareaProps): JSX.Element {
     return (
         <FormControl id={name}>
-            {label && <FormLabel fontSize="xs">{label}</FormLabel>}
+            <FormLabel fontSize="xs" hidden={hiddenLabel}>
+                {label}
+            </FormLabel>
             <ChakraTextarea
                 variant="filled"
-                placeholder={placeholder}
                 bgColor="gray.600"
                 py="4"
                 _hover={{ bgColor: 'gray.600' }}

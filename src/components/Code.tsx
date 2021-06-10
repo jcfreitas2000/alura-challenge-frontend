@@ -1,24 +1,15 @@
 import { Box, HStack, Text } from '@chakra-ui/react'
+import { Textarea } from './Form/Textarea'
 
 interface CodeProps {
-    code?: string
+    code: string
+    setCode?: (code: string) => void
     color?: string
 }
 
-const codeExample = `const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
-
-const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
-
-const unfold = (f, seed) => {
-  const go = (f, seed, acc) => {
-    const res = f(seed)
-    return res ? go(f, res[1], acc.concat([res[0]])) : acc
-  }
-  return go(f, seed, [])
-}`
-
 export function Code({
-    code = codeExample,
+    code,
+    setCode,
     color = 'blue.400'
 }: CodeProps): JSX.Element {
     return (
@@ -35,7 +26,25 @@ export function Code({
                     <ColorCircle color="yellow.400" />
                     <ColorCircle color="green.400" />
                 </HStack>
-                <Text fontSize="sm">{code}</Text>
+                {setCode ? (
+                    <Textarea
+                        name="code"
+                        label="Código"
+                        hiddenLabel
+                        fontSize="sm"
+                        value={code}
+                        onChange={event =>
+                            setCode && setCode(event.target.value)
+                        }
+                        bgColor="transparent"
+                        rows={10}
+                        _hover={{
+                            bgColor: 'transparent'
+                        }}
+                    />
+                ) : (
+                    <Text fontSize="sm">{code}</Text>
+                )}
             </Box>
         </Box>
     )

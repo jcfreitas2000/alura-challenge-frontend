@@ -15,11 +15,34 @@ import {
     UseRadioProps,
     Wrap
 } from '@chakra-ui/react'
-import { useState } from 'react'
+
+type ColorLabel =
+    | 'Cinza'
+    | 'Vermelho'
+    | 'Laranja'
+    | 'Amarelo'
+    | 'Verde'
+    | 'Verde-azulado'
+    | 'Azul'
+    | 'Ciano'
+    | 'Roxo'
+    | 'Rosa'
+
+export type ColorValue =
+    | 'gray.400'
+    | 'red.400'
+    | 'orange.400'
+    | 'yellow.400'
+    | 'green.400'
+    | 'teal.400'
+    | 'blue.400'
+    | 'cyan.400'
+    | 'purple.400'
+    | 'pink.400'
 
 type Color = {
-    label: string
-    value: string
+    label: ColorLabel
+    value: ColorValue
 }
 
 const options: Color[] = [
@@ -36,16 +59,17 @@ const options: Color[] = [
 ]
 
 interface ColorPickerProps {
-    color?: Color
-    setColor?: (color: Color) => void
+    color: ColorValue
+    setColor: (color: ColorValue) => void
 }
 
 export function ColorPicker({
     color,
     setColor
 }: ColorPickerProps): JSX.Element {
-    const [selectedColor, setSelectedColor] = useState(options[0])
     const popoverBg = 'blue.900'
+    const selectedColor =
+        options.find(option => color === option.value) || options[0]
 
     return (
         <Popover>
@@ -57,7 +81,7 @@ export function ColorPicker({
                     <RadioGroupColor
                         colors={options}
                         selectedColor={selectedColor}
-                        setSelectedColor={setSelectedColor}
+                        setSelectedColor={color => setColor(color.value)}
                     />
                 </PopoverBody>
             </PopoverContent>
@@ -171,7 +195,6 @@ function RadioItemColor({ colorItem, ...props }: RadioItemColorProps) {
                         _after: {
                             content: '"✓"',
                             display: 'block',
-                            margin: 'auto',
                             color: 'black'
                         }
                     }}

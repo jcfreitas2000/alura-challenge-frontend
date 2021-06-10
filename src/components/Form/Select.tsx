@@ -7,7 +7,8 @@ import {
 
 interface SelectProps extends ChakraSelectProps {
     name: string
-    label?: string
+    label: string
+    hiddenLabel?: boolean
     options: {
         label: string
         value: string
@@ -17,12 +18,15 @@ interface SelectProps extends ChakraSelectProps {
 export function Select({
     name,
     label,
+    hiddenLabel = false,
     options,
     ...rest
 }: SelectProps): JSX.Element {
     return (
         <FormControl id={name}>
-            {label && <FormLabel fontSize="xs">{label}</FormLabel>}
+            <FormLabel fontSize="xs" hidden={hiddenLabel}>
+                {label}
+            </FormLabel>
             <ChakraSelect
                 variant="filled"
                 bgColor="gray.600"

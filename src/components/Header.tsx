@@ -19,7 +19,12 @@ export function Header(): JSX.Element {
                 </Link>
             </Box>
             <Box as="form" w="100%">
-                <Input name="search" placeholder="Busque por algo" />
+                <Input
+                    name="search"
+                    label="Procurar"
+                    hiddenLabel
+                    placeholder="Busque por algo"
+                />
             </Box>
 
             <Profile name="Zezin do Cross" />
