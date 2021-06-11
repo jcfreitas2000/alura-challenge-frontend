@@ -1,5 +1,5 @@
 import { Header } from './Header'
-import { HStack } from '@chakra-ui/react'
+import { Box, HStack } from '@chakra-ui/react'
 import { SidebarMenu } from './SidebarMenu'
 import { ReactNode } from 'react'
 
@@ -11,9 +11,9 @@ export function Layout({ children }: LayoutProps): JSX.Element {
     return (
         <>
             <Header />
-            <HStack align="flex-start" p={8} spacing={8}>
+            <HStack pos="relative" align="flex-start" p={{ base: 4, md: 8 }}>
                 <SidebarMenu />
-                {children}
+                <Box w="100%">{children}</Box>
             </HStack>
         </>
     )

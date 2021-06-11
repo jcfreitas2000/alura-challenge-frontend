@@ -1,33 +1,45 @@
-import { Box, HStack, Link as ChakraLink, Text } from '@chakra-ui/react'
-import { Input } from './Form/Input'
+import {
+    Box,
+    Button,
+    HStack,
+    Link as ChakraLink,
+    useBreakpointValue,
+    VisuallyHidden
+} from '@chakra-ui/react'
 import { Profile } from './Profile'
 import Link from 'next/link'
 
 import LogoIcon from '../assets/logo.svg'
+import { FormSearch } from './Search'
 
 export function Header(): JSX.Element {
+    const isMobile = useBreakpointValue({ base: true, md: false })
+
     return (
-        <HStack p={8} justify="space-between" spacing={8}>
-            <Box w="100%" maxW="300px">
+        <HStack
+            p={{ base: 4, md: 8 }}
+            justify="space-between"
+            spacing={{ base: 4, md: 8 }}
+        >
+            <Box w={{ md: '100%' }} maxW={{ md: '300px' }}>
                 <Link href="/">
                     <ChakraLink>
                         <LogoIcon />
-                        <Text as="h1" hidden={true}>
-                            Alura Dev
-                        </Text>
+                        <VisuallyHidden as="h1">Alura Dev</VisuallyHidden>
                     </ChakraLink>
                 </Link>
             </Box>
-            <Box as="form" w="100%">
-                <Input
-                    name="search"
-                    label="Procurar"
-                    hiddenLabel
-                    placeholder="Busque por algo"
-                />
-            </Box>
 
-            <Profile name="Zezin do Cross" />
+            {!isMobile && <FormSearch />}
+
+            <HStack w="100%" maxW="300px" justify="flex-end">
+                {isMobile && (
+                    <Button hidden={!isMobile} variant="outline">
+                        Menu
+                    </Button>
+                )}
+                <Profile name="Zezin do Cross" />
+            </HStack>
         </HStack>
     )
 }

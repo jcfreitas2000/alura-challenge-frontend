@@ -5,7 +5,8 @@ import {
     Link as ChakraLink,
     List,
     ListItem,
-    Text
+    Text,
+    useBreakpointValue
 } from '@chakra-ui/react'
 import { Subtitle } from './Text/Subtitle'
 import Link from 'next/link'
@@ -15,9 +16,15 @@ import CodeIcon from '../assets/code.svg'
 import UsersIcon from '../assets/users.svg'
 
 export function SidebarMenu(): JSX.Element {
+    const isMobile = useBreakpointValue({ base: true, md: false })
+
+    if (isMobile) {
+        return <></>
+    }
+
     return (
-        <Flex direction="column" w="100%" maxW="300px">
-            <Subtitle text="Menu" as="small" />
+        <Flex as="nav" direction="column" w="100%" maxW="300px">
+            <Subtitle text="Menu" as="h4" />
             <List spacing={4} mt={4}>
                 <MenuItem Icon={CodeIcon} text="Editor de código" href="/" />
                 <MenuItem

@@ -15,9 +15,14 @@ export function ProjectForm(): JSX.Element {
     const [code, setCode] = useState('')
 
     return (
-        <>
+        <Stack
+            w="100%"
+            spacing={8}
+            direction={{ base: 'column', lg: 'row' }}
+            align="flex-start"
+        >
             <Code color={color} code={code} setCode={setCode} />
-            <Stack as="fieldset" spacing="8" w="100%" maxW="300px">
+            <Stack as="form" spacing="8" w="100%" maxW={{ lg: '300px' }}>
                 <Stack as="fieldset" spacing="4">
                     <Legend text="Seu projeto" />
 
@@ -70,6 +75,6 @@ export function ProjectForm(): JSX.Element {
                     Salvar projeto
                 </Button>
             </Stack>
-        </>
+        </Stack>
     )
 }
