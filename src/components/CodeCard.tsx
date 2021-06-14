@@ -6,7 +6,7 @@ import CommentIcon from '../assets/comment.svg'
 import LikeIcon from '../assets/like.svg'
 
 interface CodeCardProps {
-    code?: string
+    code: string
     color?: string
     title: string
     description: string
@@ -15,6 +15,7 @@ interface CodeCardProps {
 }
 
 export function CodeCard({
+    code,
     title,
     description,
     commentsCount,
@@ -23,7 +24,7 @@ export function CodeCard({
 }: CodeCardProps): JSX.Element {
     return (
         <Box bgColor="blue.900" borderRadius="lg">
-            <Code code="Oláaa" {...rest} />
+            <Code code={code} {...rest} />
 
             <Box py={6} px={8}>
                 <Text as="h4" fontSize="lg" fontWeight="bold" mb={2}>

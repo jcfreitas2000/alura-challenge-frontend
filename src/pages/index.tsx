@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { ProjectForm } from '../components/Project/Form'
+import { ProjectForm } from '../components/Project/ProjectForm'
 import { Layout } from '../components/Layout'
 import Head from 'next/head'
+import { ProjectsProvider } from '../hooks/useProjects'
 
 const Home: React.FC = () => {
     return (
@@ -15,7 +16,9 @@ const Home: React.FC = () => {
                 />
             </Head>
             <Layout>
-                <ProjectForm />
+                <ProjectsProvider>
+                    <ProjectForm />
+                </ProjectsProvider>
             </Layout>
         </>
     )

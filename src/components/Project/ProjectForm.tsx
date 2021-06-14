@@ -5,8 +5,10 @@ import { Textarea } from '../Form/Textarea'
 import { Select } from '../Form/Select'
 import { Code } from '../Code'
 import { ColorPicker, ColorValue } from '../Form/ColorPicker'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Container } from '../Container'
+import { useProjects } from '../../hooks/useProjects'
+import { useRouter } from 'next/router'
 
 export function ProjectForm(): JSX.Element {
     const [name, setName] = useState('')
@@ -15,16 +17,34 @@ export function ProjectForm(): JSX.Element {
     const [color, setColor] = useState<ColorValue>('blue.400')
     const [code, setCode] = useState('')
 
+    const { createProject } = useProjects()
+    const router = useRouter()
+
+    function handleSubmit(event: FormEvent) {
+        event.preventDefault()
+
+        if (!name || !description || !language || !code) {
+            alert(
+                'Dados inválidos. Por favor, preencha todos os campos e tente novamente'
+            )
+        } else {
+            createProject({ code, name, description, language, color })
+            router.push('/community')
+        }
+    }
+
     return (
         <Container>
             <Stack
+                as="form"
+                onSubmit={handleSubmit}
                 w="100%"
                 spacing={8}
                 direction={{ base: 'column', lg: 'row' }}
                 align="flex-start"
             >
                 <Code color={color} code={code} setCode={setCode} />
-                <Stack as="form" spacing="8" w="100%" maxW={{ lg: '300px' }}>
+                <Stack spacing="8" w="100%" maxW={{ lg: '300px' }}>
                     <Stack as="fieldset" spacing="4">
                         <Legend text="Seu projeto" />
 
@@ -75,6 +95,7 @@ export function ProjectForm(): JSX.Element {
                         color="gray.900"
                         lineHeight="6"
                         py="6"
+                        type="submit"
                     >
                         Salvar projeto
                     </Button>
