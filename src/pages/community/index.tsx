@@ -32,7 +32,15 @@ function ProjectsList(): JSX.Element {
     const { projects } = useProjects()
 
     return (
-        <Grid maxW="100%" templateColumns="1fr 1fr" gap={6}>
+        <Grid
+            maxW="100%"
+            templateColumns={{
+                base: '1fr',
+                lg: '1fr 1fr',
+                '2xl': 'repeat(3, 1fr)'
+            }}
+            gap={6}
+        >
             {projects.map((project, index) => (
                 <GridItem key={index}>
                     <CodeCard
@@ -40,8 +48,8 @@ function ProjectsList(): JSX.Element {
                         title={project.name}
                         description={project.description}
                         color={project.color}
-                        commentsCount={4}
-                        likesCount={5}
+                        commentsCount={project.commentsCount}
+                        likesCount={project.likesCount}
                     />
                 </GridItem>
             ))}

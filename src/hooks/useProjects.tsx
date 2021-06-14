@@ -12,9 +12,11 @@ interface Project {
     description: string
     language: string
     color: string
+    likesCount: number
+    commentsCount: number
 }
 
-type ProjectInput = Project
+type ProjectInput = Omit<Project, 'likesCount' | 'commentsCount'>
 
 interface ProjectsContextData {
     projects: Project[]
@@ -32,13 +34,15 @@ interface ProjectsProviderProps {
 export function ProjectsProvider({
     children
 }: ProjectsProviderProps): JSX.Element {
-    const [projects, setProjects] = useState([
+    const [projects, setProjects] = useState<Project[]>([
         {
             code: 'Hello World',
             name: 'Exemplo',
             description: 'Um código de exemplo, apenas para não ficar vazio ;)',
             language: 'txt',
-            color: 'blue.400'
+            color: 'blue.400',
+            likesCount: 126,
+            commentsCount: 34
         }
     ])
 
@@ -49,7 +53,14 @@ export function ProjectsProvider({
     }, [])
 
     function createProject(project: ProjectInput) {
-        const newProjects = [project, ...projects]
+        const newProjects: Project[] = [
+            {
+                commentsCount: Math.ceil(Math.random() * 100),
+                likesCount: Math.ceil(Math.random() * 100),
+                ...project
+            },
+            ...projects
+        ]
 
         setProjects(newProjects)
         localStorage.setItem('projects', JSON.stringify(newProjects))

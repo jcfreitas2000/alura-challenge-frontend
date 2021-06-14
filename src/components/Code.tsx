@@ -43,7 +43,9 @@ export function Code({
                         }}
                     />
                 ) : (
-                    <Text fontSize="sm">{code}</Text>
+                    <Text fontSize="sm" height={200} overflow="auto">
+                        {code}
+                    </Text>
                 )}
             </Box>
         </Box>
